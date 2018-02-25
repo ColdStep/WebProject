@@ -1,0 +1,123 @@
+::-webkit-scrollbar {
+    width: 12px;
+    display: none;
+}
+body{
+    background-image: url(Backgrounds/roadPs.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color:  #494339;
+	
+	
+}
+header div a{
+    font-style: oblique;
+    padding: 5%;
+	padding-bottom: 0;
+    color: white;
+    font-size: 200%;
+    font-weight: bold;
+    position: relative;
+    left: 8%;
+    text-decoration: none;
+    
+    
+} 
+@media screen and (max-width: 720px) {
+	header div a{
+		font-size: 100%;
+		display: block;
+		left: auto;
+		text-align: center;
+	}
+	body{
+		background-size:100%;
+		background-repeat: no-repeat;
+		
+	}
+	#diary{
+		
+		top:200px ;
+	}
+}
+#navBar{
+	background-color: #494339;
+	position: fixed;
+	left: 0;
+    top: 0;
+    width: 100%;
+	z-index: 1;
+	overflow: hidden;
+}
+
+#diary{	
+	position: relative;
+	top: 60px ;
+	height: auto;
+	width: auto;
+}
+
+#block{
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	display: block;
+}
+#textBlock{
+	max-height: 200px;
+}
+#textBlock p{
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+	color: white;
+	font-size: 40px;
+	padding: 50px 20px 50px 20px;
+	
+}
+#textArea{
+	max-height: 1000px;
+	height: 300px;
+	
+}
+#textArea textarea{
+	height: 100%;
+	width: 100%;
+	overflow:auto;
+    background:none;
+	color: white;
+	border:0;
+	margin: 0;
+	padding: 0;
+}
+#saveButton{
+	padding-left: 35%;
+	padding-right: 35%;
+}
+#saveButton button{
+	font-style: italic;
+	font-size: 20px;
+	margin: 2% 30% 2% 30%;
+	background:none;
+	color: white;
+	border: none;
+}
+footer{
+	
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+footer p{
+	text-align: center;
+	color: white;
+}
+footer a{
+	text-decoration: none;
+	color: white;
+}
+footer a img{
+	height:	20px;
+	width: 	20px;
+	
+}
