@@ -7,6 +7,14 @@
     <link href="DiaryCss.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+<script>
+    function saveDiary() {
+        var xmlhttp;
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("POST", "/diary", true);
+        xmlhttp.send();
+    }
+</script>
 <header> 
     <div id="navBar" >
             <a href="Home.html">Home</a>
@@ -24,10 +32,10 @@
 		<p>Here you can write about your goals , about victories and defeats, about thoughts. Otherwise about everythink.</p>
 		</div>
 		<div id="textArea">
-			<textarea>Please start here </textarea>
-		</div>
-		<div id="saveButton">
-		<button>save</button>
+			<form name="text" method="post" action="/diary" accept-charset="UTF-8">
+				<textarea id="text" name="reqDiary">Please start here </textarea>
+                <input type="submit" value="save"/>
+			</form>
 		</div>
 	</div>
 	<footer>

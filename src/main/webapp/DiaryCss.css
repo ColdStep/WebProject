@@ -78,9 +78,22 @@ header div a{
 #textArea{
 	max-height: 1000px;
 	height: 300px;
-	
 }
-#textArea textarea{
+#textArea form{
+	height: 100%;
+	width: 100%;
+}
+#textArea form input{
+	font-style: italic;
+	font-size: 20px;
+	margin: 2% 0% 2% 0%;
+	padding: 0% 50% 0% 50%;
+	background-color:#494339;
+	color: white;
+	opacity: 0.4;
+	border: none;
+}
+#text{
 	height: 100%;
 	width: 100%;
 	overflow:auto;
@@ -90,18 +103,7 @@ header div a{
 	margin: 0;
 	padding: 0;
 }
-#saveButton{
-	padding-left: 35%;
-	padding-right: 35%;
-}
-#saveButton button{
-	font-style: italic;
-	font-size: 20px;
-	margin: 2% 30% 2% 30%;
-	background:none;
-	color: white;
-	border: none;
-}
+
 footer{
 	
 	position: relative;
