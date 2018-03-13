@@ -1,0 +1,45 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-image: url(Backgrounds/roadPs.png);
+    background-size: 100%;
+    background-color:  #494339;
+    background-repeat: no-repeat;
+}
+.block{
+    display: flex;
+    flex-direction: row;
+}
+.block p{
+    color: white;
+}
+.block #centre{
+    padding: 5%;
+}
+.block #left{
+    margin: 20%;
+}
+.block #right{
+    margin: 20%;
+}
+header{
+    color: white;
+    text-align: center;
+}
+#footer{
+
+}
+#footer p{
+    text-align: center;
+    color: white;
+}
+#footer a{
+    text-decoration: none;
+    color: white;
+}
+#footer a img{
+    height:	20px;
+    width: 	20px;
+
+}

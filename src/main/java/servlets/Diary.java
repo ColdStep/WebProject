@@ -19,5 +19,6 @@ public class Diary extends HttpServlet{
         String textDiary = req.getParameter("reqDiary");
         FileUtils.write(file,textDiary);
         resp.getWriter().write("Save");
+
     }
 }
