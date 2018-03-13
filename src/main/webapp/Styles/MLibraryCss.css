@@ -1,6 +1,6 @@
 
 body{
-    background-image: url(Backgrounds/roadPs.png);
+    background-image: url(../Backgrounds/roadPs.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-color:  #494339;
@@ -27,7 +27,10 @@ header div a{
 	z-index: 1;
 	overflow: hidden;
 }
+
+
 footer{
+	
 	position: fixed;
 	bottom: 0;
 	width: 100%;

@@ -2,17 +2,20 @@
 body{
     display: flex;
     flex-direction: column;
-    background-image: url(Backgrounds/roadPs.png);
+    background-image: url(../Backgrounds/roadPs.png);
     background-size: 100%;
-    background-repeat: no-repeat;
     background-color:  #494339;
+    background-repeat: no-repeat;
 }
 .block{
     display: flex;
     flex-direction: row;
 }
+.block p{
+    color: white;
+}
 .block #centre{
-   padding: 5%;
+    padding: 5%;
 }
 .block #left{
     margin: 20%;
@@ -24,20 +27,18 @@ header{
     color: white;
     text-align: center;
 }
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+#footer{
+
 }
-footer p{
+#footer p{
     text-align: center;
     color: white;
 }
-footer a{
+#footer a{
     text-decoration: none;
     color: white;
 }
-footer a img{
+#footer a img{
     height:	20px;
     width: 	20px;
 

@@ -3,7 +3,7 @@
     display: none;
 }
 body{
-    background-image: url(Backgrounds/roadPs.png);
+    background-image: url(../Backgrounds/roadPs.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-color:  #494339;

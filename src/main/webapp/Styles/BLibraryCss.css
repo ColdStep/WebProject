@@ -1,11 +1,10 @@
 
 body{
-    background-image: url(Backgrounds/roadPs.png);
+    background-image: url(../Backgrounds/roadPs.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-color:  #494339;
 }
-
 header div a{
     font-style: oblique;
     padding: 5%;
@@ -16,6 +15,8 @@ header div a{
     position: relative;
     left: 8%;
     text-decoration: none;
+    
+    
 } 
 #navBar{
 	background-color: #494339;
@@ -25,31 +26,6 @@ header div a{
     width: 100%;
 	z-index: 1;
 	overflow: hidden;
-}
-#block{
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	top: 50px;
-}
-#welcome h1{
-	text-align: center;
-	color: white;
-	font-style: italic;
-	font-size: 70px;
-}
-#welcome{
-	width: 100%;
-	padding: 100px 0px 150px 0px;
-}
-#aboutMySite{
-	padding-left: 10%;
-	padding-right: 10%;
-}
-#aboutMySite h3{
-	font-style: italic;
-	text-align: center;
-	color: white;
 }
 footer{
 	position: fixed;
@@ -69,4 +45,3 @@ footer a img{
 	width: 	20px;
 	
 }
-
