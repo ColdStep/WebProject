@@ -1,77 +1,71 @@
 package Module;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
+
+
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Database {
     private static final String URL = "jdbc:mysql://localhost:3306/webproject";
     private static final String USERNAME = "root";
-    private static final String PASSWORD= "root";
-    private String name;
-    private String surname;
-    private int age;
-    private String login;
-    private String loginPassword;
+    private static final String PASSWORD = "root";
+    private Connection connection = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
 
-    public static void main(String[] args) {
-
+    public Database() {
         try {
-            Driver driver = new FabricMySQLDriver();
-            DriverManager.registerDriver(driver);
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
             System.out.println("Driver is create");
         } catch (SQLException e) {
             System.out.println("Driver isn't create");
             e.printStackTrace();
         }
-        try{
-            Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT *FROM account");
-            while (resultSet.next()){
-                System.out.println(resultSet.getString("name")+" "+resultSet.getString("surname")+" ("+resultSet.getInt("Age")+") \n Login - "+ resultSet.getString("login")+"\n Password - "+resultSet.getString("password"));
-            }
-        }catch (Exception e){
+        try {
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            statement = connection.createStatement();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+
+    public List<String> getAllInformation(String login) throws SQLException{
+       List<String> list = new ArrayList<String>();
+       try {
+
+           resultSet = statement.executeQuery("select *from account where login='"+login+"'");
+       }catch (SQLException e){
+           e.printStackTrace();
+       }
+       while (resultSet.next()) {
+           list.add(resultSet.getString("name"));
+           list.add(resultSet.getString("surname"));
+           list.add(resultSet.getString("age".toString()));
+           list.add(resultSet.getString("login"));
+           list.add(resultSet.getString("password"));
+       }
+        return list;
+    }
+
+    public void setAllIndormation(String name, String surname , Integer age, String login , String loginPassword){
+       try{
+
+           statement.executeUpdate("INSERT INTO `webproject`.`account` (`name`, `surname`, `age`, `login`, `password`) VALUES ('"+name+"', '"+surname+"', '"+age+"', '"+login+"', '"+loginPassword+"')");
+
+       } catch (SQLException e){
+           e.printStackTrace();
+       }
+    }
+
+    public String getLogin(String login) throws Exception{
+        resultSet = statement.executeQuery("select *from account where login=login");
+        return resultSet.getString("");
+    }
+
 }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getLoginPassword() {
-        return loginPassword;
-    }
-
-    public void setLoginPassword(String loginPassword) {
-        this.loginPassword = loginPassword;
-    }
