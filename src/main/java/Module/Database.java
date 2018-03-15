@@ -3,6 +3,8 @@ package Module;
 
 
 
+import com.google.gson.internal.bind.SqlDateTypeAdapter;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,14 @@ public class Database {
     private Statement statement = null;
     private ResultSet resultSet = null;
 
+
+    private String name;
+    private String surname;
+    private Integer age;
+    private String login;
+    private String loginPassword;
+    private String diary;
+
     public Database() {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
@@ -27,7 +37,6 @@ public class Database {
         try {
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             statement = connection.createStatement();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,14 +44,9 @@ public class Database {
 
 
 
-    public List<String> getAllInformation(String login) throws SQLException{
+    public List<String> getAllInformationAboutUser(String login) throws SQLException{
        List<String> list = new ArrayList<String>();
-       try {
 
-           resultSet = statement.executeQuery("select *from account where login='"+login+"'");
-       }catch (SQLException e){
-           e.printStackTrace();
-       }
        while (resultSet.next()) {
            list.add(resultSet.getString("name"));
            list.add(resultSet.getString("surname"));
@@ -56,16 +60,59 @@ public class Database {
     public void setAllIndormation(String name, String surname , Integer age, String login , String loginPassword){
        try{
 
-           statement.executeUpdate("INSERT INTO `webproject`.`account` (`name`, `surname`, `age`, `login`, `password`) VALUES ('"+name+"', '"+surname+"', '"+age+"', '"+login+"', '"+loginPassword+"')");
+           statement.executeUpdate("INSERT INTO webproject.user_account (`name`, `surname`, `age`, `login`, `password`) VALUES ('"+name+"', '"+surname+"', '"+age+"', '"+login+"', '"+loginPassword+"')");
 
        } catch (SQLException e){
            e.printStackTrace();
        }
     }
 
-    public String getLogin(String login) throws Exception{
-        resultSet = statement.executeQuery("select *from account where login=login");
-        return resultSet.getString("");
+
+    public String getLogin(Integer id)throws SQLException {
+        resultSet = statement.executeQuery(" select login  from webproject.user_account where id= '"+id+"';");
+        while (resultSet.next()){
+            login = resultSet.getString(1);
+        }
+        return login;
+    }
+
+    public String getName(String login) throws SQLException{
+        resultSet = statement.executeQuery(" select name  from webproject.user_account where login = '"+login+"';");
+        while (resultSet.next()){
+             name = resultSet.getString(1);
+        }
+        return name;
+    }
+
+
+    public String getSurname(String login) throws SQLException{
+        resultSet = statement.executeQuery(" select surname  from webproject.user_account where login = '"+login+"';");
+        while (resultSet.next()){
+        surname = resultSet.getString(1);
+    }
+        return surname;
+    }
+    public Integer getAge(String login) throws SQLException{
+        resultSet = statement.executeQuery(" select age  from webproject.user_account where login = '"+login+"';");
+        while (resultSet.next()){
+            age = resultSet.getInt(1);
+        }
+        return age;
+    }
+    public String getPassword(String login) throws SQLException{
+        resultSet = statement.executeQuery(" select password  from webproject.user_account where login = '"+login+"';");
+        while (resultSet.next()){
+            loginPassword = resultSet.getString(1);
+        }
+        return loginPassword;
+    }
+
+    public String getDiary(String login)throws SQLException{
+        resultSet = statement.executeQuery(" select diary  from webproject.user_account where login = '"+login+"';");
+        while (resultSet.next()){
+            diary = resultSet.getString(1);
+        }
+        return diary;
     }
 
 }

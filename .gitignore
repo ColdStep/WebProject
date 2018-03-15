@@ -1,8 +1,8 @@
 .idea/*
 /*target
-
+src/main/java/module/Testing.java
 *.class
-
+*
 *.war
 *.jar
 *.ear
