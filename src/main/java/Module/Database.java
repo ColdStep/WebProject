@@ -114,5 +114,17 @@ public class Database {
         }
         return diary;
     }
+    public boolean isExist(String login ,String loginPassword) throws SQLException{
+        boolean result=false;
+        resultSet = statement.executeQuery("SELECT login,password from webproject.user_account;");
+        int i=0;
+        while (resultSet.next()){
+            if (resultSet.getString("login").equals(login) && resultSet.getString("password").equals(loginPassword)){
+                result =true;
+            }
+        }
+        return result;
+    }
+
 
 }
