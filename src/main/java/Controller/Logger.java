@@ -21,7 +21,7 @@ public class Logger  extends HttpServlet{
         try {
             if (database.isExist(req.getParameter("login"),req.getParameter("password"))==true) {
                 resp.sendRedirect("Pages/Home.html");
-            }else {
+            }else if (database.isExist(req.getParameter("login"),req.getParameter("password"))==false){
                 resp.getWriter().write("Wrong Login or password");
             }
         }catch (SQLException e){
