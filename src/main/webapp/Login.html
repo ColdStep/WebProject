@@ -6,6 +6,7 @@
     <link href="Styles/LoginCss.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+
 <header>
     <h1>Welcome to my site </h1>
     <h2>Please login or register</h2>
@@ -13,12 +14,13 @@
 <div class="block">
     <div id="left"></div>
     <div id="centre">
-        <form method="post" action="/log">
+        <h3 style="color: white; text-align: center;" id="submitAlert"></h3>
+        <form id="login-form">
             <p style="text-align: center;color: white">Login</p>
             <input  type="text" name="login">
             <p style="text-align: center; color: white">Password</p>
             <input  type="password" name="password">
-            <input style="margin: 11%" type="submit" value="Login" >
+            <button style="margin: 11%" type="submit" >Login</button>
             <input onclick="location.href='/Register.html' " type="button" value="Register">
         </form>
     </div>
@@ -32,6 +34,6 @@
     </p>
 
 </footer>
-
+<script src="vova.js"></script>
 </body>
 </html>

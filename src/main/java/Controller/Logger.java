@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Enumeration;
-
 @WebServlet("/log")
 
 public class Logger  extends HttpServlet{
@@ -17,10 +15,9 @@ public class Logger  extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestedSessionId();
         Database database = new Database();
-
         try {
             if (database.isExist(req.getParameter("login"),req.getParameter("password"))==true) {
-                resp.sendRedirect("Pages/Home.html");
+                resp.getWriter().write("Pages/Home.html");
             }else if (database.isExist(req.getParameter("login"),req.getParameter("password"))==false){
                 resp.getWriter().write("Wrong Login or password");
             }
