@@ -17,7 +17,9 @@ public class Logger  extends HttpServlet{
         Database database = new Database();
         try {
             if (database.isExist(req.getParameter("login"),req.getParameter("password"))==true) {
-                resp.getWriter().write("Pages/Home.html");
+                resp.setStatus(302);
+                resp.getWriter().write("/Pages/Home.html");
+
             }else if (database.isExist(req.getParameter("login"),req.getParameter("password"))==false){
                 resp.getWriter().write("Wrong Login or password");
             }
