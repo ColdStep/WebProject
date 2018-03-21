@@ -3,9 +3,7 @@ package Controller;
 import Module.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 @WebServlet("/log")
@@ -17,6 +15,9 @@ public class Logger  extends HttpServlet{
         Database database = new Database();
         try {
             if (database.isExist(req.getParameter("login"),req.getParameter("password"))==true) {
+                HttpSession session = req.getSession();
+                session.setAttribute("login",req.getParameter("login"));
+                session.setAttribute("password",req.getParameter("password"));
                 resp.setStatus(302);
                 resp.getWriter().write("/Pages/Home.html");
 
