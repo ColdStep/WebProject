@@ -107,6 +107,10 @@ public class Database {
         return loginPassword;
     }
 
+    public void setDiary(String diary,String login) throws SQLException {
+        statement.executeUpdate("update webproject.user_account set diary = '"+diary+"' where login='"+login+"'");
+    }
+
     public String getDiary(String login)throws SQLException{
         resultSet = statement.executeQuery(" select diary  from webproject.user_account where login = '"+login+"';");
         while (resultSet.next()){
@@ -117,7 +121,6 @@ public class Database {
     public boolean isExist(String login ,String loginPassword) throws SQLException{
         boolean result=false;
         resultSet = statement.executeQuery("SELECT login,password from webproject.user_account;");
-        int i=0;
         while (resultSet.next()){
             if (resultSet.getString("login").equals(login) && resultSet.getString("password").equals(loginPassword)){
                 result =true;
