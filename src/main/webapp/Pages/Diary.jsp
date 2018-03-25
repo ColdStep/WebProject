@@ -48,6 +48,6 @@
 
     </footer>
 </div>
-
+<%--<script src="JavaScript/diary.js"></script>--%>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class Diary extends HttpServlet{
         HttpSession session = req.getSession();
         String textDiary = new String(req.getParameter("reqDiary").getBytes("ISO-8859-1"), Charset.forName("UTF-8"));
         String login = session.getAttribute("login").toString();
-        String password = session.getAttribute("password").toString();
+
 
         try {
             Database database = new Database();
